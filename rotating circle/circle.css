@@ -9,6 +9,7 @@ main{
 	height: 500px;
 	display: grid;
 	align-items: center;
+	perspective: 300px;
 }
 
 main img{
@@ -18,10 +19,24 @@ main img{
 	animation-duration: 5s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
+	border-radius: 50%;
+}
+
+button{
+	width: 100px;
+	border: 1px solid lightgrey;
+	height: 50px;
+	font-size: 20px;
+	margin: 0px 10px;
+	border-radius: 5px;
 }
 
 
 @keyframes rotate{
-	from{transform: rotate(-360deg);}
-	to{transform: rotate(360deg);}
+	from{
+		transform: rotate(-360deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
 }
