@@ -1,7 +1,7 @@
 var todoList = document.querySelectorAll('#todos ul li');
 var todoListParent = document.querySelector('#todos ul');
 const addBtn = document.querySelector('button');
-var userInput = document.getElementById('input');
+var userInput = document.querySelector('input');
 
 addBtn.addEventListener('click', function(){
   // checks if user has enter a value
