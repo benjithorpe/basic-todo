@@ -1,2 +1,3 @@
-# css-animations
-CSS Animations, Transitions and Transform practice demos
+# Basic TODO app
+
+simple basic todo app
