@@ -1,27 +1,33 @@
-const todoListParent = document.querySelector('#todos ul');
 const addBtn = document.querySelector('button');
-var userInput = document.querySelector('input');
+const ul = document.querySelector("#todos ul");
+let lists = ul.getElementsByTagName('li');
 
+// Add items to the list
 addBtn.addEventListener('click', function(){
-  // checks if user has enter a value
-  if(userInput.value.trim()){
-    var newListItem = document.createElement("li"); // create a new list element
-    let userText = document.createTextNode(userInput.value);
+  const userInput = document.querySelector('input').value;
 
-    newListItem.appendChild(userText);  // add the user input in the li element
-    todoListParent.appendChild(newListItem);  // add the list tag to the ul element
-    userInput.value = "";  // reset the input value
-    addEventToItem();
+  if(!userInput){
+    return
   }
+  const li = document.createElement('li');
+  li.innerHTML = '<img src="delete.svg">'; // add the trash can image
+
+  li.appendChild(document.createTextNode(userInput));
+  ul.appendChild(li);
+
+  update();
+  console.log(lists.length);
+  console.log(lists);
 });
 
 
-function addEventToItem(){
-  var todoList = document.querySelectorAll('li');
+function update(){
+  // Delete items from the list
+  for (var i = 0; i < lists.length; i++){
+    const deleteBtn = lists.item(i).querySelector('img');
 
-  for(let count = 0; count < todoList.length; count++){
-    todoList[count].addEventListener('click', function(){
-      todoListParent.removeChild(this);
+    deleteBtn.addEventListener('click', function(){
+      this.parentNode.parentNode.removeChild(this.parentNode);
     });
   }
 }

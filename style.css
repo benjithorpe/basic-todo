@@ -18,11 +18,12 @@ main{
 form{
   position: sticky;
   top: 0;
-  /*background-color: #35477d;*/
   padding: 1em;
   display: flex;
   flex-direction: column;
   grid-gap: 2em;
+  z-index: 3;
+  background-color: #07689f;
 }
 
 input[type='text']{
@@ -37,7 +38,7 @@ input[type='text']{
 
 button{
   padding: .7em 1em;
-  background-color: #3f72af;
+  background-color: royalblue;
   border: none;
   color: white;
   font-size: 1.5rem;
@@ -48,6 +49,7 @@ button{
 }
 
 section#todos{
+  overflow: hidden;
   margin-top: 3em;
   padding: .5em;
   color: white;
@@ -57,16 +59,23 @@ section#todos{
   list-style-type: none;
   line-height: 2;
   display: grid;
-  grid-gap: 1em;
+  grid-gap: 2em;
 }
 
 ul li{
   padding: .2em .3em;
   border-bottom: 1px solid #bad7df;
   font-size: 1.6rem;
-  /*font-style: italic;*/
+  line-height: 1.5;
+  position: relative;
 }
 
+li img{
+  height: 2.5em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 
 @media screen and (min-width: 400px){
   form{
@@ -82,7 +91,7 @@ ul li{
   /*button{ width: 20%; }*/
 }
 
-@media screen and (min-width: 750px){
+@media screen and (min-width: 768px){
   main{
     width: 60%;
     margin-top: 5em;
