@@ -48,14 +48,13 @@ button{
   font-family: monospace;
 }
 
-section#todos{
+section{
   overflow: hidden;
   margin-top: 3em;
   padding: .5em;
-  color: white;
 }
 
-#todos ul{
+#todos{
   list-style-type: none;
   line-height: 2;
   display: grid;
@@ -64,17 +63,22 @@ section#todos{
 
 ul li{
   padding: .2em .3em;
+  color: white;
   border-bottom: 1px solid #bad7df;
   font-size: 1.6rem;
   line-height: 1.5;
   position: relative;
 }
 
-li img{
-  height: 2.5em;
+.deleteBtn{
+  height: 100%;
   position: absolute;
   bottom: 0;
   right: 0;
+  border-radius: 0;
+  background-color: tomato;
+  width: max-content;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 400px){
@@ -82,13 +86,11 @@ li img{
     flex-direction: row;
     grid-gap: 1em
   }
-
   button{ width: 40%; }
 }
 
 @media screen and (min-width: 550px){
   main{ width: 80%; }
-  /*button{ width: 20%; }*/
 }
 
 @media screen and (min-width: 768px){
