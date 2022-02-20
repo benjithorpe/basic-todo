@@ -11,22 +11,21 @@ localTodos.forEach(element => allTodoItems.append(buildItem(element)));
 
 const getInput = () => document.querySelector("[data-input-field]");
 const isValidInput = () => getInput().value.trim() ? true : false;
-// Save data to localStorage
 const saveToStorage = () => localStorage.setItem("todos", JSON.stringify(localTodos));
-const deleteItem = (item) => {
-  // Remove the deleted item from localStorage and UI
-  localTodos.splice(localTodos.indexOf(item), 1);
-  localTodos = [...localTodos];  // Update the todo list
-};
+// Remove item from localStorage and UI
+const deleteItem = (item) => localTodos.splice(localTodos.indexOf(item), 1);
 
 function buildItem(element) {
   const todoItem = itemTemplate.content.cloneNode(true);
 
   todoItem.querySelector("span.content").textContent = element;
+  todoItem.querySelector("li").classList.add("added")
   const deleteBtn = todoItem.querySelector("button.delete");
   // Add delete functionality to item created
   deleteBtn.addEventListener('click', () => {
-    deleteBtn.parentElement.remove();
+    deleteBtn.parentElement.classList.remove("added")
+    deleteBtn.parentElement.classList.add("deleted");
+    setTimeout(() => deleteBtn.parentElement.remove(), 1500)
     deleteItem(element);
     saveToStorage();
   });
