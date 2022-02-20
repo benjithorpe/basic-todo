@@ -1,0 +1,27 @@
+*{
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+.main{
+  min-height: 100vh;
+  background-color: #D1D1D1;
+  background-color: #92A9BD;
+}
+.todo-section{
+  background-color: rgba(220, 234, 248, 0.925);
+  border-radius: 5px;
+  box-shadow: 4px 5px 7px rgba(131, 141, 153, 0.925);
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px){
+  .todo-section{
+    max-width: 75%;
+  }
+}
+
+@media screen and (min-width: 992px){
+  .todo-section{
+    width: 50%;
+  }
+}
