@@ -19,13 +19,13 @@ function buildItem(element) {
   const todoItem = itemTemplate.content.cloneNode(true);
 
   todoItem.querySelector("span.content").textContent = element;
-  todoItem.querySelector("li").classList.add("added")
+  todoItem.querySelector("li").classList.add("added");
   const deleteBtn = todoItem.querySelector("button.delete");
   // Add delete functionality to item created
   deleteBtn.addEventListener('click', () => {
-    deleteBtn.parentElement.classList.remove("added")
+    deleteBtn.parentElement.classList.remove("added");
     deleteBtn.parentElement.classList.add("deleted");
-    setTimeout(() => deleteBtn.parentElement.remove(), 1500)
+    setTimeout(() => deleteBtn.parentElement.remove(), 990);
     deleteItem(element);
     saveToStorage();
   });
@@ -40,7 +40,9 @@ function addItemAndSaveToStorage() {
   saveToStorage();
 }
 
-addItemBtn.addEventListener('click', () => {
+addItemBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+
   if (isValidInput()) addItemAndSaveToStorage();
   getInput().value = "";  // Clear the input field
 });
